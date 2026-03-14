@@ -4,35 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Makaira Media - Jasa Google Ads Profesional</title>
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f7f6; color: #333; line-height: 1.6; }
-        
-        /* Navigasi */
-        nav { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #4285F4; } /* Warna Google Blue */
-        .nav-links a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; }
+        /* CSS DASAR */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #ffffff; color: #333; line-height: 1.6; overflow-x: hidden; }
+
+        /* NAVIGASI */
+        nav { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #4285F4; letter-spacing: 1px; }
+        .nav-links a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: #4285F4; }
 
-        /* Hero Section */
-        .hero { display: flex; flex-wrap: wrap; padding: 50px 5%; align-items: center; background: #fff; }
+        /* HERO SECTION DENGAN BACKGROUND BERGERAK */
+        .hero { 
+            display: flex; 
+            flex-wrap: wrap; 
+            padding: 80px 5%; 
+            align-items: center; 
+            min-height: 80vh;
+            background: linear-gradient(-45deg, #f0f7ff, #ffffff, #e8f0fe, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .hero-text { flex: 1; min-width: 300px; padding: 20px; }
-        .hero-text h1 { font-size: 2.5rem; color: #202124; margin-bottom: 20px; line-height: 1.2; }
-        .hero-text p { font-size: 1.1rem; margin-bottom: 30px; color: #5f6368; }
-        .hero-image { flex: 1; min-width: 300px; text-align: center; }
-        .hero-image img { max-width: 100%; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .hero-text h1 { font-size: 3rem; color: #202124; margin-bottom: 20px; line-height: 1.2; }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 30px; color: #5f6368; }
 
-        /* Tombol */
-        .btn { background: #4285F4; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
-        .btn:hover { background: #357abd; transform: translateY(-2px); }
+        .hero-image { flex: 1; min-width: 300px; text-align: center; position: relative; }
+        .hero-image img { 
+            max-width: 80%; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
 
-        /* Floating WA */
-        .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; }
-        .float-wa:hover { background: #128c7e; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
 
+        /* LAYANAN SECTION */
+        .services { padding: 80px 5%; background: #f8f9fa; text-align: center; }
+        .services h2 { margin-bottom: 40px; font-size: 2rem; }
+        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            width: 300px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card h3 { color: #4285F4; margin-bottom: 15px; }
+
+        /* TOMBOL */
+        .btn { background: #4285F4; color: #fff; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(66,133,244,0.3); }
+        .btn:hover { background: #3367d6; transform: scale(1.05); }
+
+        /* FLOATING WHATSAPP */
+        .float-wa { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: #25d366; 
+            color: white; 
+            padding: 15px 25px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+            z-index: 1000; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+        }
+
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-            .hero { text-align: center; }
-            .nav-links { display: none; } /* Sembunyikan menu di HP untuk kesederhanaan */
+            .hero-text h1 { font-size: 2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -41,25 +111,44 @@
     <nav>
         <div class="logo">MAKAIRA MEDIA</div>
         <div class="nav-links">
-            <a href="index.html">Beranda</a>
-            <a href="#tentang">Tentang</a>
+            <a href="#">Beranda</a>
+            <a href="#layanan">Layanan</a>
+            <a href="#harga">Harga</a>
             <a href="https://wa.me/628123456789">Kontak</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-text">
-            <h1>Tingkatkan Omzet Bisnis Anda dengan Google Ads</h1>
-            <p>Makaira Media membantu bisnis Anda muncul di halaman pertama Google. Kami mengelola iklan secara profesional untuk mendatangkan lebih banyak pembeli, bukan sekadar klik.</p>
-            <a href="https://wa.me/628123456789?text=Halo%20Makaira%20Media%2C%20saya%20tertarik%20jasa%20Google%20Ads" class="btn">Konsultasi Gratis Sekarang</a>
+            <h1>Partner Resmi Pertumbuhan Bisnis Anda</h1>
+            <p>Makaira Media menghadirkan strategi Google Ads yang tepat sasaran. Kami fokus pada konversi dan ROI, bukan sekadar tayangan iklan.</p>
+            <a href="https://wa.me/628123456789" class="btn">Mulai Konsultasi Gratis</a>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1551288049-bbda38a5f452?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Google Ads Tracking">
+            <img src="https://illustrations.popsy.co/blue/digital-marketing.svg" alt="Makaira Media Ads">
+        </div>
+    </section>
+
+    <section id="layanan" class="services">
+        <h2>Layanan Unggulan Kami</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Google Search</h3>
+                <p>Muncul di peringkat teratas saat calon pembeli mencari produk Anda di Google.</p>
+            </div>
+            <div class="card">
+                <h3>Google Display</h3>
+                <p>Branding luas di jutaan website dan aplikasi untuk menjangkau audiens baru.</p>
+            </div>
+            <div class="card">
+                <h3>Youtube Ads</h3>
+                <p>Iklan video yang menarik untuk meningkatkan kepercayaan brand Anda.</p>
+            </div>
         </div>
     </section>
 
     <a href="https://wa.me/628123456789" class="float-wa" target="_blank">
-        Hubungi Kami via WA
+        <span>Hubungi Admin</span>
     </a>
 
 </body>
