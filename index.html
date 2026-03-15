@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAKAIRA - Digital Marketing & Software Solution</title>
+    <title>MAKAIRA - Scale Up Bisnis Anda</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #00a8ff; /* Biru terang premium */
-            --dark-bg: #000b18; /* Biru gelap pekat seperti gambar */
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --primary-blue: #00a8ff; /* Biru terang premium */
+            --nav-bg: rgba(0, 11, 24, 0.9); /* Gelap untuk navigasi */
+            --menu-oval-bg: #3bd1d3; /* Cyan terang untuk oval menu */
             --border-glass: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         
         body { 
-            background-color: var(--dark-bg); 
+            background-color: #000b18; /* Biru gelap pekat */
             color: #ffffff; 
             line-height: 1.6; 
             overflow-x: hidden; 
         }
 
-        /* CONTAINER PARTIKEL (Latar Belakang Bergerak) */
+        /* 1. BACKGROUND ANIMASI TITIK & GARIS (Particles.js) */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -33,175 +35,156 @@
             background-image: radial-gradient(circle at center, #001f3f 0%, #000b18 100%);
         }
 
-        /* NAVIGASI */
+        /* =========================================
+           2. NAVIGASI ATAS (Brand & Menu Oval)
+           ========================================= */
         nav { 
-            background: rgba(0, 11, 24, 0.8); 
+            background: var(--nav-bg); 
             backdrop-filter: blur(10px);
-            padding: 1.5rem 5%; 
-            display: flex; justify-content: space-between; align-items: center; 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; /* Brand kiri, Menu kanan */
+            align-items: center; 
             position: fixed; top: 0; width: 100%; z-index: 1000; 
             border-bottom: 1px solid var(--border-glass);
         }
-        .logo { font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: 3px; }
-        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.8); margin-left: 25px; font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
 
-        /* CONTENT WRAPPER */
-        .main-content { position: relative; z-index: 2; padding-top: 100px; }
+        /* BRAND / LOGO OTENTIK (Sebelah Kiri) */
+        .logo { 
+            font-family: 'EB Garamond', serif; /* Font otentik, klasik, mudah dibaca */
+            font-size: 2.2rem; 
+            font-weight: 800; 
+            color: #ffffff; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-        /* HERO SECTION */
+        /* MENU OVAL (Sebelah Kanan) */
+        .nav-oval-container {
+            background-color: var(--menu-oval-bg); /* Cyan terang sesuai gambar 1 */
+            padding: 10px 30px;
+            border-radius: 50px; /* Membuat bentuk kapsul oval */
+            display: flex;
+            gap: 20px; /* Jarak antar menu */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-oval-container a { 
+            text-decoration: none; 
+            color: #ffffff; /* Teks menu putih */
+            font-weight: 600; 
+            font-size: 0.9rem;
+            transition: 0.3s; 
+            text-transform: capitalize; /* Huruf besar di awal kata */
+        }
+
+        .nav-oval-container a:hover { 
+            color: var(--nav-bg); /* Berubah gelap saat hover */
+        }
+
+        /* =========================================
+           3. HERO SECTION (Teks Besar dari Gambar 2)
+           ========================================= */
         .hero { 
+            position: relative;
+            z-index: 2; /* Di depan partikel */
             text-align: center;
-            padding: 100px 5% 50px;
+            padding: 180px 5% 80px; /* Padding atas besar agar navigasi tidak menutupi */
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .hero h1 span { color: var(--primary); }
-        .hero p { max-width: 800px; margin: 0 auto 40px; font-size: 1.2rem; color: rgba(255,255,255,0.8); }
 
-        /* PRICING SECTION */
-        .pricing-section { padding: 50px 5%; text-align: center; }
-        .category-title { margin: 60px 0 30px; font-size: 2rem; font-weight: bold; color: var(--primary); }
-        .price-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        /* Judul Besar (Teks Gambar 2) */
+        .hero h1 { 
+            font-size: 3.8rem; /* Lebih besar & menonjol */
+            font-weight: 800; 
+            color: #ffffff; /* Putih bersih */
+            margin-bottom: 25px; 
+            text-shadow: 0 5px 20px rgba(0,0,0,0.6); /* Efek bayangan agar teks 'on' */
+            max-width: 900px;
+            line-height: 1.1;
+        }
 
-        /* CARD STYLE (Glassmorphism seperti gambar) */
-        .card { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px; 
-            padding: 40px 20px; 
-            width: 300px; 
-            transition: 0.4s;
-            text-align: center;
+        /* Deskripsi (Teks Gambar 2) */
+        .hero p { 
+            max-width: 750px; 
+            margin: 0 auto 50px; 
+            font-size: 1.25rem; 
+            color: rgba(255,255,255,0.9); /* Putih sedikit transparan */
+            font-weight: 400;
         }
-        .card:hover { 
-            transform: translateY(-15px); 
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(0, 168, 255, 0.2);
-        }
-        .card h3 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
-        .card .price { font-size: 2.2rem; font-weight: 800; margin-bottom: 20px; color: #fff; }
-        
-        .btn-buy { 
-            display: inline-block; padding: 12px 25px; 
-            background: var(--primary); 
-            color: #fff; text-decoration: none; border-radius: 50px; 
-            font-weight: bold; margin-bottom: 20px; width: 100%;
-            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.3);
+
+        /* TOMBOL KONSULTASI (Biru dari Gambar 2) */
+        .btn-consult { 
+            display: inline-block; 
+            padding: 16px 45px; 
+            background: var(--primary-blue); /* Biru terang dari Gambar 2 */
+            color: #ffffff; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(0, 168, 255, 0.4);
             transition: 0.3s;
         }
-        .btn-buy:hover { background: #0086cc; transform: scale(1.05); }
 
-        /* FITUR PAKET */
-        .details-content { text-align: left; margin-top: 20px; font-size: 0.9rem; border-top: 1px solid var(--border-glass); padding-top: 20px; }
-        .details-content ul { list-style: none; }
-        .details-content li { margin-bottom: 10px; color: rgba(255,255,255,0.7); display: flex; align-items: center; }
-        .details-content li::before { content: '✔'; margin-right: 10px; color: var(--primary); font-weight: bold; }
+        .btn-consult:hover { 
+            background: #0086cc; 
+            transform: translateY(-3px) scale(1.03); 
+        }
 
-        /* FLOATING WA */
-        .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) { 
+            .logo { font-size: 1.8rem; }
+            .nav-oval-container { padding: 8px 15px; gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .nav-oval-container a { font-size: 0.8rem; }
+            .hero h1 { font-size: 2.2rem; } 
+            .hero p { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
 
     <div id="particles-js"></div>
 
-    <div class="main-content">
-        <nav>
-            <div class="logo">MAKAIRA</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#ads">Ads</a>
-                <a href="#web">Web</a>
-                <a href="https://wa.me/628123456789">Kontak</a>
-            </div>
-        </nav>
+    <nav>
+        <div class="logo">MAKAIRA</div>
 
-        <section class="hero" id="home">
-            <h1>Tingkatkan Omzet Bisnis Anda dengan <span>Google Ads</span></h1>
-            <p>Makaira Media membantu bisnis Anda muncul di halaman pertama Google secara profesional untuk mendatangkan lebih banyak pembeli, bukan sekadar klik.</p>
-            <a href="https://wa.me/628123456789" class="btn-buy" style="width: auto; padding: 15px 40px;">Konsultasi Gratis Sekarang</a>
-        </section>
+        <div class="nav-oval-container">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#ads">Ads Service</a>
+            <a href="#web">Web Develop</a>
+            <a href="#app">App Develop</a>
+            <a href="#erp">Enterprise Solution</a>
+        </div>
+    </nav>
 
-        <section class="pricing-section" id="web">
-            <div class="category-title">Paket Layanan MAKAIRA</div>
-            <div class="price-container">
-                
-                <div class="card">
-                    <h3>Landing Page</h3>
-                    <div class="price">Rp 700rb</div>
-                    <a href="https://wa.me/628123456789" class="btn-buy">Booking</a>
-                    <div class="details-content">
-                        <ul>
-                            <li>10 Menu</li>
-                            <li>Gratis Domain .com, .id</li>
-                            <li>Hosting 3 GB</li>
-                            <li>Website SSL</li>
-                        </ul>
-                    </div>
-                </div>
+    <section class="hero" id="home">
+        <h1>Scale Up Bisnis Anda Bersama MAKAIRA</h1>
+        <p>Solusi Digital Terintegrasi: Google Ads, Meta Ads, Pembuatan Website & Custom ERP untuk Pertumbuhan Bisnis yang Eksponensial.</p>
+        
+        <a href="https://wa.me/628123456789" class="btn-consult">Konsultasi Strategi Sekarang</a>
+    </section>
 
-                <div class="card">
-                    <h3>Business Web</h3>
-                    <div class="price">Rp 1,6jt</div>
-                    <a href="https://wa.me/628123456789" class="btn-buy">Booking</a>
-                    <div class="details-content">
-                        <ul>
-                            <li>Fitur E-commerce</li>
-                            <li>SEO Premium</li>
-                            <li>Blog System</li>
-                            <li>Perpanjangan 600rb</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card" style="border-color: var(--primary);">
-                    <h3>Diamond Ads</h3>
-                    <div class="price">Rp 2jt</div>
-                    <a href="https://wa.me/628123456789" class="btn-buy">Booking</a>
-                    <div class="details-content">
-                        <ul>
-                            <li>Google Ads Setup</li>
-                            <li>Meta Ads Setup</li>
-                            <li>Integrasi Media Sosial</li>
-                            <li>Laporan Mingguan</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Masterclass</h3>
-                    <div class="price">Rp 15jt</div>
-                    <a href="https://wa.me/628123456789" class="btn-buy">Booking</a>
-                    <div class="details-content">
-                        <ul>
-                            <li>Mentoring Private</li>
-                            <li>Diajarkan Sampai Bisa</li>
-                            <li>Akses Semua Script</li>
-                            <li>Support Prioritas</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-
-    <a href="https://wa.me/628123456789" class="float-wa">WhatsApp Admin</a>
+    <a href="https://wa.me/628123456789" style="position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+        WhatsApp Admin
+    </a>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#00a8ff" },
+                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00a8ff" }, /* Warna titik biru premium */
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00a8ff", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                "opacity": { "value": 0.6, "random": false },
+                "size": { "value": 3.5, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00a8ff", "opacity": 0.4, "width": 1.2 },
+                "move": { "enable": true, "speed": 2.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
                 "detect_on": "canvas",
