@@ -12,10 +12,8 @@
         :root {
             --primary-blue: #00a8ff; /* Biru terang premium */
             --nav-bg: rgba(0, 11, 24, 0.9); /* Gelap untuk navigasi */
-            /* Warna Baru: Deep Royal Blue untuk Navigasi Atas */
             --menu-oval-bg: #4834d4; 
             --border-glass: rgba(255, 255, 255, 0.1);
-            /* Warna Panel Layanan (Lebih Soft & Glassy) */
             --service-panel-bg: rgba(72, 52, 212, 0.8);
         }
 
@@ -40,7 +38,7 @@
         }
 
         /* =========================================
-            2. NAVIGASI ATAS
+            2. NAVIGASI ATAS (Oval Persegi Panjang)
            ========================================= */
         nav { 
             background: var(--nav-bg); 
@@ -64,11 +62,13 @@
 
         .nav-oval-container {
             background-color: var(--menu-oval-bg);
-            padding: 8px 30px;
-            border-radius: 50px;
+            padding: 10px 35px;
+            /* Dirubah: Tidak bulat sempurna, lebih ke arah rounded rectangle */
+            border-radius: 15px; 
             display: flex;
             gap: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .nav-oval-container a { 
@@ -124,7 +124,7 @@
             font-size: 1.1rem;
             box-shadow: 0 8px 20px rgba(0, 168, 255, 0.4);
             transition: 0.3s;
-            margin-bottom: 60px; /* Jarak ke menu layanan di bawahnya */
+            margin-bottom: 80px; /* Jarak ditambah agar lebih lega */
         }
 
         .btn-consult:hover { 
@@ -133,17 +133,17 @@
         }
 
         /* =========================================
-            4. MENU LAYANAN IKON (BAWAH TOMBOL)
+            4. MENU LAYANAN IKON (Border Memisah)
            ========================================= */
         .service-menu-panel {
             background: var(--service-panel-bg);
             backdrop-filter: blur(10px);
-            padding: 20px 40px;
-            border-radius: 80px;
+            padding: 15px 30px;
+            border-radius: 25px; /* Sesuai bentuk gambar: Rounded Rectangle lebar */
             display: flex;
-            gap: 15px;
+            gap: 10px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         .service-item {
@@ -153,8 +153,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-width: 90px;
-            padding: 10px;
+            min-width: 100px;
+            padding: 15px 10px;
+            /* Tambahan: Border putih transparan agar terlihat memisah antar kotak */
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             transition: 0.3s;
         }
@@ -165,7 +167,7 @@
         }
 
         .service-item span {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -173,20 +175,21 @@
 
         .service-item:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-5px);
         }
 
         /* MOBILE RESPONSIVE */
         @media (max-width: 768px) { 
             .hero h1 { font-size: 2.2rem; }
-            .nav-oval-container { display: none; } /* Sembunyikan nav atas di mobile agar tidak penuh */
+            .nav-oval-container { display: none; } 
             .service-menu-panel { 
                 padding: 15px; 
-                border-radius: 30px; 
+                border-radius: 20px; 
                 flex-wrap: wrap; 
                 justify-content: center; 
             }
-            .service-item { min-width: 70px; }
+            .service-item { min-width: 80px; }
         }
     </style>
 </head>
