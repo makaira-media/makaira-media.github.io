@@ -10,9 +10,9 @@
 
     <style>
         :root {
-            --primary-blue: #00a8ff; /* Biru terang premium */
-            --nav-bg: rgba(0, 11, 24, 0.9); /* Gelap untuk navigasi */
-            --menu-oval-bg: #3bd1d3; /* KEMBALI KE CYAN SESUAI PERMINTAAN AWAL */
+            --primary-blue: #00a8ff;
+            --nav-bg: rgba(0, 11, 24, 0.9);
+            --menu-oval-bg: #4834d4; 
             --border-glass: rgba(255, 255, 255, 0.1);
             --service-panel-bg: rgba(72, 52, 212, 0.8);
             --text-dark: #202124;
@@ -27,7 +27,6 @@
             overflow-x: hidden; 
         }
 
-        /* 1. BACKGROUND ANIMASI TITIK & GARIS */
         #particles-js {
             position: fixed;
             width: 100%; height: 100%;
@@ -55,7 +54,7 @@
         .nav-oval-container {
             background-color: var(--menu-oval-bg);
             padding: 10px 35px;
-            border-radius: 15px; /* Tetap kotak tumpul sesuai revisi terakhir */
+            border-radius: 15px; 
             display: flex; gap: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.1);
@@ -68,8 +67,8 @@
         .hero { 
             position: relative; z-index: 2;
             text-align: center;
-            padding: 180px 5% 80px;
-            min-height: 90vh;
+            padding: 180px 5% 100px;
+            min-height: 95vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
 
@@ -90,6 +89,8 @@
             transition: 0.3s; margin-bottom: 80px;
         }
 
+        .btn-consult:hover { background: #0086cc; transform: translateY(-3px); }
+
         .service-menu-panel {
             background: var(--service-panel-bg);
             backdrop-filter: blur(10px);
@@ -109,79 +110,118 @@
 
         .service-item i { font-size: 1.8rem; margin-bottom: 8px; }
         .service-item span { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+        .service-item:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.8); transform: translateY(-5px); }
 
         /* 5. ABOUT SECTION */
         .about-section {
-            background-color: #ffffff;
+            background-color: #ffffff; 
             color: var(--text-dark);
             padding: 100px 8%;
-            position: relative; z-index: 3;
-            display: flex; align-items: center; flex-wrap: wrap; gap: 50px;
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
         }
+
         .about-content { flex: 1; min-width: 350px; }
+        .about-content h4 { color: #f36c21; font-weight: 800; font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; }
         .about-content h2 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 25px; }
         .about-content h2 span { color: #4834d4; }
+        .about-content p { color: #5f6368; font-size: 1.1rem; margin-bottom: 30px; text-align: justify; }
+
+        .about-btn {
+            display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text-dark); font-weight: 700;
+        }
+        .play-icon {
+            width: 50px; height: 50px; background: #f36c21; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: white;
+        }
+
         .about-stats { display: flex; align-items: center; gap: 20px; margin-top: 40px; }
+        .stat-images { display: flex; }
         .stat-images img { width: 45px; height: 45px; border-radius: 50%; border: 3px solid white; margin-left: -15px; }
-        .stat-images img:first-child { margin-left: 0; }
         .stat-number { font-size: 2.2rem; font-weight: 800; color: #4834d4; }
+        .stat-text { color: #5f6368; font-size: 0.9rem; font-weight: 600; line-height: 1.2; }
+
         .about-image { flex: 1; min-width: 350px; text-align: center; }
-        .about-image img { max-width: 100%; animation: floating 4s ease-in-out infinite; }
-        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .about-image img { 
+            max-width: 100%; 
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.1));
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
 
         /* =========================================
-            6. PRICING SECTION (UPDATE TERBARU)
+            6. WEBSITE PRICING SECTION
            ========================================= */
         .pricing-section {
-            background: linear-gradient(180deg, #4834d4 0%, #000b18 100%); /* Biru yang nyambung ke bawah */
             padding: 100px 5%;
-            position: relative; z-index: 3;
+            background-color: #f8f9fa;
+            color: var(--text-dark);
             text-align: center;
+            position: relative;
+            z-index: 3;
         }
+        .pricing-section h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; color: #000b18; }
+        .pricing-section p.sub-title { margin-bottom: 50px; color: #5f6368; font-weight: 600; }
 
-        .pricing-section h4 { color: #3bd1d3; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
-        .pricing-section h2 { font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 50px; }
-
-        .price-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .price-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; align-items: flex-start;
+        }
 
         .p-card {
-            background: #ffffff; color: var(--text-dark); border-radius: 20px;
-            width: 240px; padding: 25px 15px; text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s;
+            background: white; border-radius: 20px; width: 280px; padding: 35px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: 0.3s;
+            border: 1px solid #eee;
         }
-        .p-card:hover { transform: translateY(-10px); }
-        .p-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; }
+        .p-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         
+        .p-card h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; color: #333; }
         .p-badge { 
-            display: inline-block; padding: 4px 15px; border-radius: 20px; 
-            color: white; font-weight: bold; margin-bottom: 10px; font-size: 0.75rem;
-            background: #686de0;
+            display: inline-block; padding: 5px 20px; border-radius: 20px; 
+            color: white; font-weight: bold; margin-bottom: 15px; font-size: 0.8rem;
         }
-
+        .p-sub { color: #4834d4; font-weight: bold; font-size: 0.9rem; margin-bottom: 20px; display: block; }
+        
         .btn-booking {
-            background: linear-gradient(to right, #7b81ec, #3bd1d3); color: white;
-            padding: 10px; border-radius: 30px; font-weight: bold; text-decoration: none;
-            display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem;
+            background: #6c5ce7; color: white; padding: 12px; border-radius: 30px;
+            text-decoration: none; font-weight: bold; display: flex; align-items: center;
+            justify-content: center; gap: 10px; margin-bottom: 15px; transition: 0.3s;
         }
-
+        .btn-booking:hover { background: #4834d4; }
+        
+        .perpanjangan { font-size: 0.85rem; font-weight: 700; color: #444; margin-bottom: 20px; display: block; }
+        
+        .fitur-box { text-align: left; }
         .fitur-header {
-            background: #f1f2f6; color: #4834d4; padding: 8px; border-radius: 8px;
-            cursor: pointer; font-size: 0.75rem; font-weight: 700; text-align: left; margin-top: 10px;
+            background: #6c5ce7; color: white; padding: 10px; border-radius: 8px;
+            font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
         }
-        .fitur-content { display: none; text-align: left; padding: 10px; border: 1px solid #eee; font-size: 0.7rem; color: #555; }
-        .fitur-content ul { list-style: none; }
-        .fitur-content li { margin-bottom: 5px; border-bottom: 1px solid #fafafa; }
+        .fitur-list { list-style: none; padding-left: 5px; }
+        .fitur-list li { font-size: 0.85rem; color: #555; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; }
+        .fitur-list li::before { content: "•"; color: #6c5ce7; font-weight: bold; }
 
         /* Badge Colors */
-        .p-lp .p-badge { background: #34A853; }
-        .p-sl .p-badge { background: #9fa8da; }
-        .p-gl .p-badge { background: #ffd700; color: #333; }
-        .p-dm .p-badge { background: #4285F4; }
-        .p-pl .p-badge { background: #2c3e50; }
+        .p-lp .p-badge { background: #00b894; }
+        .p-silver .p-badge { background: #b2bec3; }
+        .p-gold .p-badge { background: #fab1a0; }
+        .p-diamond .p-badge { background: #0984e3; }
+        .p-platinum .p-badge { background: #2d3436; }
 
+        @media (max-width: 768px) {
+            .pricing-section { padding: 60px 5%; }
+            .p-card { width: 100%; }
+        }
     </style>
 </head>
 <body>
+
     <div id="particles-js"></div>
 
     <nav>
@@ -200,6 +240,7 @@
         <h1>Scale Up Bisnis Anda Bersama MAKAIRA</h1>
         <p>Solusi Digital Terintegrasi: Google Ads, Meta Ads, Pembuatan Website & Custom ERP untuk Pertumbuhan Bisnis yang Eksponensial.</p>
         <a href="https://wa.me/628123456789" class="btn-consult">Konsultasi Strategi Sekarang</a>
+
         <div class="service-menu-panel">
             <a href="#web" class="service-item"><i class="fas fa-desktop"></i><span>Website</span></a>
             <a href="#ads" class="service-item"><i class="fas fa-bullhorn"></i><span>Iklan</span></a>
@@ -211,57 +252,161 @@
 
     <section class="about-section" id="about">
         <div class="about-content">
+            <h4>MAKAIRA DIGITAL AGENCY</h4>
             <h2>Layanan Jasa Pembuatan <span>Website Profesional & SEO</span> Bergaransi</h2>
-            <p>MAKAIRA menghadirkan strategi digital yang tajam, fungsionalitas sistem yang optimal, dan desain yang memikat.</p>
+            <p>MAKAIRA menghadirkan strategi digital yang tajam, fungsionalitas sistem yang optimal, dan desain yang memikat. Kami memastikan setiap landing page dan kampanye iklan Anda bukan sekadar tampil, tapi mampu mengonversi pengunjung menjadi pelanggan setia. Percayakan pertumbuhan digital Anda kepada ahli kami.</p>
+            
+            <a href="https://wa.me/628123456789" class="about-btn">
+                <div class="play-icon"><i class="fas fa-play"></i></div>
+                <span>Konsultasi Sekarang</span>
+            </a>
+
             <div class="about-stats">
-                <div class="stat-images"><img src="https://i.pravatar.cc/100?u=1"><img src="https://i.pravatar.cc/100?u=2"></div>
-                <div><div class="stat-number">2.000+</div><div class="stat-text">Website & Project Telah Sukses Dibangun</div></div>
+                <div class="stat-images">
+                    <img src="https://i.pravatar.cc/100?u=1" alt="client">
+                    <img src="https://i.pravatar.cc/100?u=2" alt="client">
+                    <img src="https://i.pravatar.cc/100?u=3" alt="client">
+                </div>
+                <div>
+                    <div class="stat-number">2.000+</div>
+                    <div class="stat-text">Website & Project<br>Telah Sukses Dibangun</div>
+                </div>
             </div>
         </div>
-        <div class="about-image"><img src="https://cdni.iconscout.com/illustration/premium/thumb/mobile-app-development-4268364-3551733.png"></div>
+
+        <div class="about-image">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/mobile-app-development-4268364-3551733.png" alt="Makaira Mockup">
+        </div>
     </section>
 
     <section class="pricing-section" id="web">
-        <h4>Paket Jasa Website</h4>
-        <h2>Pilih Paket Untuk Bisnis Anda</h2>
+        <h2>Paket Jasa Website</h2>
+        <p class="sub-title">Silahkan Pilih Paket Untuk Bisnis Anda</p>
+
         <div class="price-container">
             <div class="p-card p-lp">
-                <h3>Rp 300rb</h3><div class="p-badge">Landing Page</div>
-                <a href="#" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
-                <div class="fitur-header" onclick="toggleFitur(this)">● Fitur Paket</div>
-                <div class="fitur-content"><ul><li>1 Halaman</li><li>Responsive</li><li>WA Integration</li></ul></div>
+                <h3>Rp 300rb</h3>
+                <div class="p-badge">Landing Page</div>
+                <span class="p-sub">Paket One-Page</span>
+                <a href="https://wa.me/628123456789" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
+                <span class="perpanjangan">Perpanjangan Rp 200rb</span>
+                <div class="fitur-box">
+                    <div class="fitur-header"><i class="fas fa-list"></i> Fitur Paket</div>
+                    <ul class="fitur-list">
+                        <li>1 Halaman Landing Page</li>
+                        <li>Mobile Responsive</li>
+                        <li>Integrasi WhatsApp</li>
+                        <li>Free SSL (HTTPS)</li>
+                        <li>Bandwidth Unlimited</li>
+                        <li>Garansi Selamanya</li>
+                    </ul>
+                </div>
             </div>
-            <div class="p-card p-sl">
-                <h3>Rp 700rb</h3><div class="p-badge">Silver</div>
-                <a href="#" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
-                <div class="fitur-header" onclick="toggleFitur(this)">● Fitur Paket</div>
-                <div class="fitur-content"><ul><li>4 Menu</li><li>Web.id</li><li>500MB Hosting</li></ul></div>
+
+            <div class="p-card p-silver">
+                <h3>Rp 700rb</h3>
+                <div class="p-badge">Silver</div>
+                <span class="p-sub">Paket Tahunan</span>
+                <a href="https://wa.me/628123456789" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
+                <span class="perpanjangan">Perpanjangan 500rb</span>
+                <div class="fitur-box">
+                    <div class="fitur-header"><i class="fas fa-list"></i> Fitur Paket</div>
+                    <ul class="fitur-list">
+                        <li>4 Menu</li>
+                        <li>FREE Domain Web.id</li>
+                        <li>Hosting 500 MB (30 foto kuota kerja)</li>
+                        <li>Integrasi Sosial Media</li>
+                        <li>Website SSL</li>
+                        <li>Template WP Premium</li>
+                        <li>Garansi Selamanya</li>
+                    </ul>
+                </div>
             </div>
-            <div class="p-card p-gl">
-                <h3>Rp 1,6jt</h3><div class="p-badge">Gold</div>
-                <a href="#" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
-                <div class="fitur-header" onclick="toggleFitur(this)">● Fitur Paket</div>
-                <div class="fitur-content"><ul><li>8 Menu</li><li>Domain .com</li><li>3GB Hosting</li></ul></div>
+
+            <div class="p-card p-gold">
+                <h3>Rp 1,6jt</h3>
+                <div class="p-badge">Gold</div>
+                <span class="p-sub">Paket Tahunan</span>
+                <a href="https://wa.me/628123456789" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
+                <span class="perpanjangan">Perpanjangan 600rb</span>
+                <div class="fitur-box">
+                    <div class="fitur-header"><i class="fas fa-list"></i> Fitur Paket</div>
+                    <ul class="fitur-list">
+                        <li>8 Menu</li>
+                        <li>Gratis Domain com</li>
+                        <li>Hosting 3 GB (70 foto kuota kerja)</li>
+                        <li>Integrasi Media Sosial</li>
+                        <li>Free Whatsapp/Telepon</li>
+                        <li>Website SSL</li>
+                        <li>Garansi Selamanya</li>
+                    </ul>
+                </div>
             </div>
-            <div class="p-card p-dm">
-                <h3>Rp 2jt</h3><div class="p-badge">Diamond</div>
-                <a href="#" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
-                <div class="fitur-header" onclick="toggleFitur(this)">● Fitur Paket</div>
-                <div class="fitur-content"><ul><li>10 Menu</li><li>.com/.co.id</li><li>3GB Hosting</li></ul></div>
+
+            <div class="p-card p-diamond">
+                <h3>Rp 2jt</h3>
+                <div class="p-badge">Diamond</div>
+                <span class="p-sub">Paket Tahunan</span>
+                <a href="https://wa.me/628123456789" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
+                <span class="perpanjangan">Perpanjangan 1jt</span>
+                <div class="fitur-box">
+                    <div class="fitur-header"><i class="fas fa-list"></i> Fitur Paket</div>
+                    <ul class="fitur-list">
+                        <li>10 Menu</li>
+                        <li>Gratis Domain com, co.id</li>
+                        <li>Hosting 3 GB (90 foto kuota kerja)</li>
+                        <li>Integrasi Media Sosial</li>
+                        <li>Free Whatsapp/Telepon</li>
+                        <li>Website SSL</li>
+                        <li>Garansi Selamanya</li>
+                    </ul>
+                </div>
             </div>
-            <div class="p-card p-pl">
-                <h3>Rp 3jt</h3><div class="p-badge">Platinum</div>
-                <a href="#" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
-                <div class="fitur-header" onclick="toggleFitur(this)">● Fitur Paket</div>
-                <div class="fitur-content"><ul><li>15-20 Menu</li><li>Hosting 5GB</li><li>SEO Premium</li></ul></div>
+
+            <div class="p-card p-platinum">
+                <h3>Rp 3jt</h3>
+                <div class="p-badge">Platinum</div>
+                <span class="p-sub">Paket Tahunan</span>
+                <a href="https://wa.me/628123456789" class="btn-booking">Booking <i class="fab fa-whatsapp"></i></a>
+                <span class="perpanjangan">Perpanjangan 50% dari harga</span>
+                <div class="fitur-box">
+                    <div class="fitur-header"><i class="fas fa-list"></i> Fitur Paket</div>
+                    <ul class="fitur-list">
+                        <li>15-20 Menu</li>
+                        <li>Gratis Domain com, id, co.id</li>
+                        <li>Hosting 5 GB (120 foto kuota kerja)</li>
+                        <li>Free Whatsapp/Telepon</li>
+                        <li>Integrasi Sosial Media</li>
+                        <li>Website SSL</li>
+                        <li>Garansi Selamanya</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
+    <a href="https://wa.me/628123456789" style="position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+        <i class="fab fa-whatsapp"></i> WhatsApp Admin
+    </a>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS("particles-js", { "particles": { "number": { "value": 90 }, "color": { "value": "#00a8ff" }, "line_linked": { "color": "#00a8ff" }, "move": { "speed": 2.5 } } });
-        function toggleFitur(h) { var c = h.nextElementSibling; c.style.display = c.style.display === "block" ? "none" : "block"; }
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00a8ff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.6, "random": false },
+                "size": { "value": 3.5, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00a8ff", "opacity": 0.4, "width": 1.2 },
+                "move": { "enable": true, "speed": 2.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "resize": true }
+            },
+            "retina_detect": true
+        });
     </script>
 </body>
 </html>
