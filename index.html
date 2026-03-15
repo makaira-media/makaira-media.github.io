@@ -7,15 +7,14 @@
     
     <style>
         :root {
-            --primary: #4285F4;
+            --primary: #4285F4; /* Google Blue */
             --secondary: #34A853;
             --dark: #202124;
             --light: #f8f9fa;
-            --gradient: linear-gradient(135deg, #4285F4, #9198e5);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #fff; color: var(--dark); line-height: 1.6; }
+        body { background-color: #fff; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
 
         /* NAVIGASI */
         nav { 
@@ -29,23 +28,31 @@
         .nav-links a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 600; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
 
-        /* HERO SECTION */
+        /* =========================================
+           HERO SECTION DENGAN BG BERGERAK (PLEXUS)
+           ========================================= */
         .hero { 
             padding: 100px 5%; 
             display: flex; flex-wrap: wrap; align-items: center; 
-            background: linear-gradient(-45deg, #f0f7ff, #ffffff, #e8f0fe, #ffffff);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            min-height: 80vh;
+            min-height: 85vh;
+            position: relative; /* Wajib agar partikel ada di belakang teks */
+            background-color: #ffffff; /* Dominan Putih */
         }
-        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         
-        .hero-text { flex: 1; min-width: 350px; }
+        /* Memastikan konten hero ada di depan partikel */
+        .hero-text { 
+            flex: 1; 
+            min-width: 350px; 
+            position: relative; 
+            z-index: 2; /* Di atas partikel */
+        }
+        
         .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: var(--dark); }
+        .hero-text h1 span { color: var(--primary); } /* Warna Biru Premium di Teks */
         .hero-text p { font-size: 1.2rem; color: #5f6368; margin-bottom: 30px; }
 
         /* PRICING SECTION */
-        .pricing-section { padding: 80px 5%; background: var(--light); text-align: center; }
+        .pricing-section { padding: 80px 5%; background: var(--light); text-align: center; position: relative; z-index: 2; }
         .pricing-section h2 { font-size: 2.5rem; margin-bottom: 50px; }
         
         .category-title { margin: 40px 0 20px; font-size: 1.8rem; color: var(--primary); font-weight: bold; }
@@ -67,7 +74,7 @@
         .btn-buy { 
             display: inline-block; padding: 12px 25px; background: var(--primary); 
             color: white; text-decoration: none; border-radius: 50px; font-weight: bold; 
-            margin-bottom: 20px; transition: 0.3s; width: 100%;
+            margin-bottom: 20px; transition: 0.3s; width: 100%; border: none; cursor: pointer;
         }
         .btn-buy:hover { background: #3367d6; }
 
@@ -83,11 +90,11 @@
         @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ERP SECTION */
-        .erp-special { padding: 80px 5%; background: var(--dark); color: white; text-align: center; }
+        .erp-special { padding: 80px 5%; background: var(--dark); color: white; text-align: center; position: relative; z-index: 2; }
         .erp-special h2 { font-size: 2.5rem; margin-bottom: 20px; }
         .erp-card { max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); }
 
-        /* FOOTER & WA */
+        /* FLOATING WA */
         .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 1000; }
 
         @media (max-width: 768px) { .hero-text h1 { font-size: 2.5rem; } .nav-links { display: none; } }
@@ -107,7 +114,7 @@
 
     <section class="hero" id="home">
         <div class="hero-text">
-            <h1>Scale Up Bisnis Anda Bersama MAKAIRA</h1>
+            <h1>Scale Up Bisnis Anda Bersama <span>MAKAIRA</span></h1>
             <p>Solusi Digital Terintegrasi: Google Ads, Meta Ads, Pembuatan Website & Custom ERP untuk Pertumbuhan Bisnis yang Eksponensial.</p>
             <a href="https://wa.me/628123456789" class="btn-buy" style="width: auto; padding: 15px 40px;">Konsultasi Strategi Sekarang</a>
         </div>
@@ -115,7 +122,6 @@
 
     <section class="pricing-section" id="web">
         <h2>Layanan & Paket Harga</h2>
-
         <div class="category-title">Pembuatan Website</div>
         <div class="price-container">
             <div class="card">
@@ -125,121 +131,54 @@
                 <a href="https://wa.me/628123456789" class="btn-buy">Pesan Sekarang</a>
                 <button class="details-btn" onclick="toggleDetails(this)">Lihat Fitur Paket</button>
                 <div class="details-content">
-                    <ul>
-                        <li>1 Halaman Profesional</li>
-                        <li>Mobile Responsive</li>
-                        <li>Integrasi WhatsApp</li>
-                        <li>Free SSL (Gembok Aman)</li>
-                    </ul>
+                    <ul><li>1 Halaman</li><li>Mobile Responsive</li><li>Integrasi WA</li></ul>
                 </div>
             </div>
             <div class="card featured">
                 <h3>Company Profile</h3>
                 <div class="price">Rp 1,5jt<span>/Project</span></div>
-                <p style="font-size: 0.8rem; margin-bottom: 15px;">Standar bisnis profesional.</p>
                 <a href="https://wa.me/628123456789" class="btn-buy">Pesan Sekarang</a>
                 <button class="details-btn" onclick="toggleDetails(this)">Lihat Fitur Paket</button>
                 <div class="details-content">
-                    <ul>
-                        <li>Hingga 5 Halaman</li>
-                        <li>Custom Domain .com</li>
-                        <li>SEO Basic Setup</li>
-                        <li>Email Bisnis</li>
-                    </ul>
+                    <ul><li>Up to 5 Halaman</li><li>Domain .com</li><li>SEO Basic</li></ul>
                 </div>
             </div>
         </div>
 
         <div class="category-title" id="ads">Google Ads & Meta Ads</div>
         <div class="price-container">
-            <div class="card">
-                <h3>Starter Ads</h3>
-                <div class="price">Rp 1jt<span>/Bulan</span></div>
-                <a href="https://wa.me/628123456789" class="btn-buy">Pilih Paket</a>
-                <button class="details-btn" onclick="toggleDetails(this)">Lihat Detail</button>
-                <div class="details-content">
-                    <ul>
-                        <li>1 Campaign Dasar</li>
-                        <li>Research Keyword</li>
-                        <li>Laporan Mingguan</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Business Ads</h3>
-                <div class="price">Rp 3jt<span>/Bulan</span></div>
-                <a href="https://wa.me/628123456789" class="btn-buy">Pilih Paket</a>
-                <button class="details-btn" onclick="toggleDetails(this)">Lihat Detail</button>
-                <div class="details-content">
-                    <ul>
-                        <li>3 Campaign (Search & Display)</li>
-                        <li>Retargeting Strategy</li>
-                        <li>Optimasi Conversion</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Scale Up Ads</h3>
-                <div class="price">Rp 5jt<span>/Bulan</span></div>
-                <a href="https://wa.me/628123456789" class="btn-buy">Pilih Paket</a>
-                <button class="details-btn" onclick="toggleDetails(this)">Lihat Detail</button>
-                <div class="details-content">
-                    <ul>
-                        <li>Multi-Platform (GAds & Meta)</li>
-                        <li>Advanced Tracking (GTM/Pixel)</li>
-                        <li>A/B Testing Content</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card featured">
-                <h3>Masterclass Package</h3>
-                <div class="price">Rp 15jt<span>/Full</span></div>
-                <p style="background: #e8f0fe; font-size: 0.75rem; border-radius: 5px; padding: 5px;">Hingga Bisa!</p>
-                <a href="https://wa.me/628123456789" class="btn-buy">Ambil Slot Mentoring</a>
-                <button class="details-btn" onclick="toggleDetails(this)">Apa Yang Didapat?</button>
-                <div class="details-content">
-                    <ul>
-                        <li>Mentoring Private 1-on-1</li>
-                        <li>Akses Semua Script Makaira</li>
-                        <li>Diajarkan Sampai Mahir Ads</li>
-                        <li>Free Setup 3 Campaign Pertama</li>
-                    </ul>
-                </div>
-            </div>
+            <div class="card"><h3>Starter</h3><div class="price">1jt<span>/bln</span></div><a href="#" class="btn-buy">Pilih</a></div>
+            <div class="card"><h3>Business</h3><div class="price">3jt<span>/bln</span></div><a href="#" class="btn-buy">Pilih</a></div>
+            <div class="card"><h3>Scale Up</h3><div class="price">5jt<span>/bln</span></div><a href="#" class="btn-buy">Pilih</a></div>
+            <div class="card featured"><h3>Masterclass</h3><div class="price">15jt<span>/Full</span></div><a href="#" class="btn-buy">Ambil</a></div>
         </div>
     </section>
 
     <section class="erp-special" id="erp">
         <h2>Enterprise Solution & ERP</h2>
         <div class="erp-card">
-            <p style="margin-bottom: 20px; font-size: 1.2rem;">Kebutuhan aplikasi custom untuk bisnis kelas menengah ke atas? Kami membangun ERP yang disesuaikan dengan alur kerja perusahaan Anda.</p>
-            <ul style="text-align: left; display: inline-block; margin-bottom: 30px;">
-                <li>✓ Sistem Manajemen Stok & Inventaris</li>
-                <li>✓ Dashboard Penjualan Terintegrasi</li>
-                <li>✓ Custom App Android / iOS</li>
-                <li>✓ Sistem Keuangan & Payroll</li>
-            </ul>
-            <br>
-            <a href="https://wa.me/628123456789?text=Halo%20Makaira%2C%20saya%20tertarik%20diskusi%20sistem%20ERP/App" class="btn-buy" style="background: white; color: var(--dark); width: auto; padding: 15px 40px;">Hubungi Tim Enterprise</a>
+            <p>Kebutuhan aplikasi custom untuk bisnis menengah ke atas? Kami bangun ERP yang disesuaikan alur kerja Anda.</p>
+            <a href="https://wa.me/628123456789" class="btn-buy" style="background: white; color: var(--dark); width: auto; padding: 15px 40px;">Hubungi Tim Enterprise</a>
         </div>
     </section>
 
-    <a href="https://wa.me/628123456789" class="float-wa">WhatsApp Kami Sekarang</a>
+    <a href="https://wa.me/628123456789" class="float-wa">WhatsApp Kami</a>
 
     <script>
         function toggleDetails(btn) {
             const content = btn.nextElementSibling;
             const isVisible = content.style.display === "block";
-            
-            // Close all others
             document.querySelectorAll('.details-content').forEach(el => el.style.display = 'none');
             document.querySelectorAll('.details-btn').forEach(el => el.innerText = 'Lihat Detail');
-
-            if (!isVisible) {
-                content.style.display = "block";
-                btn.innerText = "Sembunyikan Detail";
-            }
+            if (!isVisible) { content.style.display = "block"; btn.innerText = "Sembunyikan"; }
         }
     </script>
-</body>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js" 
+            data-color="66,133,244" 
+            data-opacity="0.3" 
+            data-count="99" 
+            data-zIndex="1">
+    </script>
+    </body>
 </html>
