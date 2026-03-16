@@ -142,7 +142,6 @@
         .about-stats { display: flex; align-items: center; gap: 20px; margin-top: 40px; }
         .stat-images { display: flex; }
         .stat-images img { width: 45px; height: 45px; border-radius: 50%; border: 3px solid white; margin-left: -15px; }
-        .stat-images img:first-child { margin-left: 0; }
         .stat-number { font-size: 2.2rem; font-weight: 800; color: #4834d4; }
         .stat-text { color: #5f6368; font-size: 0.9rem; font-weight: 600; line-height: 1.2; }
 
@@ -158,9 +157,7 @@
             50% { transform: translateY(-20px) rotate(2deg); }
         }
 
-        /* =========================================
-            6. WEBSITE PRICING SECTION
-           ========================================= */
+        /* 6. WEBSITE PRICING SECTION */
         .pricing-section {
             padding: 100px 5%;
             background-color: #f8f9fa;
@@ -211,13 +208,61 @@
         /* Badge Colors */
         .p-lp .p-badge { background: #00b894; }
         .p-silver .p-badge { background: #b2bec3; }
-        .p-gold .p-badge { background: #ffd700; color: #333; }
-        .p-diamond .p-badge { background: #4834d4; }
+        .p-gold .p-badge { background: #fab1a0; }
+        .p-diamond .p-badge { background: #0984e3; }
         .p-platinum .p-badge { background: #2d3436; }
 
+        /* =========================================
+            7. FREE FEATURES SECTION (UPDATE)
+           ========================================= */
+        .free-features-section {
+            padding: 100px 5% 150px;
+            background-color: #000b18; /* Biru seperti menu */
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Hiasan Wave */
+        .free-features-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 100px;
+            background: url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/fonts/Simple-Line-Icons.woff'); /* Placeholder wave logic */
+            background: linear-gradient(to bottom right, transparent 49%, #001f3f 50%);
+            opacity: 0.5;
+        }
+
+        .free-features-section h4 { color: #f36c21; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
+        .free-features-section h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; }
+        .free-features-section p.intro { margin-bottom: 60px; color: rgba(255,255,255,0.8); }
+
+        .free-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+        }
+
+        .free-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px; padding: 40px 30px; width: 320px;
+            text-align: center; transition: 0.3s;
+        }
+        .free-card:hover { transform: translateY(-15px); background: rgba(255, 255, 255, 0.1); border-color: var(--primary-blue); }
+
+        .free-icon {
+            width: 80px; height: 80px; background: #6c5ce7; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 25px; font-size: 2rem; box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
+        }
+
+        .free-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
+        .free-card p { font-size: 0.95rem; color: rgba(255,255,255,0.7); }
+
         @media (max-width: 768px) {
-            .pricing-section { padding: 60px 5%; }
-            .p-card { width: 100%; }
+            .free-features-section h2 { font-size: 2rem; }
+            .free-card { width: 100%; }
         }
     </style>
 </head>
@@ -421,6 +466,30 @@
                         <li>Integrasi Lapak Media</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="free-features-section">
+        <h4>FITUR TAMBAHAN</h4>
+        <h2>DAPATKAN FITUR FITUR GRATIS!!</h2>
+        <p class="intro">Apa yang Akan Anda Dapatkan dari Jasa Pembuatan Website MAKAIRA?</p>
+
+        <div class="free-container">
+            <div class="free-card">
+                <div class="free-icon"><i class="fab fa-google"></i></div>
+                <h3>FREE IKLAN GOOGLE</h3>
+                <p>Iklan Google Ads yang membantu mempresentasikan bisnis Anda menjangkau audiens lebih luas.</p>
+            </div>
+            <div class="free-card">
+                <div class="free-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>FREE 3 ARTIKEL</h3>
+                <p>Artikel SEO friendly konten 100% original dibuat oleh tim SEO profesional untuk optimasi website.</p>
+            </div>
+            <div class="free-card">
+                <div class="free-icon"><i class="fas fa-code"></i></div>
+                <h3>FREE MAINTENANCE</h3>
+                <p>Kami menjamin keamanan website tanpa malware & berjalan secara optimal setiap saat.</p>
             </div>
         </div>
     </section>
