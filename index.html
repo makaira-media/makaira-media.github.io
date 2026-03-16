@@ -212,24 +212,20 @@
         .p-diamond .p-badge { background: #0984e3; }
         .p-platinum .p-badge { background: #2d3436; }
 
-        /* =========================================
-            7. FREE FEATURES SECTION (UPDATE)
-           ========================================= */
+        /* 7. FREE FEATURES SECTION */
         .free-features-section {
             padding: 100px 5% 150px;
-            background-color: #000b18; /* Biru seperti menu */
+            background-color: #000b18; 
             color: #ffffff;
             text-align: center;
             position: relative;
             z-index: 3;
         }
 
-        /* Hiasan Wave */
         .free-features-section::after {
             content: "";
             position: absolute;
             bottom: 0; left: 0; width: 100%; height: 100px;
-            background: url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/fonts/Simple-Line-Icons.woff'); /* Placeholder wave logic */
             background: linear-gradient(to bottom right, transparent 49%, #001f3f 50%);
             opacity: 0.5;
         }
@@ -260,9 +256,49 @@
         .free-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
         .free-card p { font-size: 0.95rem; color: rgba(255,255,255,0.7); }
 
+        /* =========================================
+            8. DIGITAL MARKETING ADS SECTION (BARU)
+           ========================================= */
+        .ads-pricing-section {
+            padding: 100px 5%;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .ads-pricing-section h4 { color: #f36c21; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
+        .ads-pricing-section h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; color: #4834d4; }
+        .ads-pricing-section p.intro { margin-bottom: 60px; color: #5f6368; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+        .ads-card {
+            background: #f8f9fa; border-radius: 20px; width: 320px; padding: 40px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; transition: 0.3s;
+            border: 1px solid #eee; position: relative;
+        }
+        .ads-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #4834d4; }
+        
+        .ads-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 5px; color: #000b18; text-transform: uppercase; }
+        .ads-price-box { margin-bottom: 25px; }
+        .ads-price { font-size: 1.8rem; font-weight: 800; color: #4834d4; display: block; }
+        .ads-duration { font-size: 0.9rem; color: #666; font-weight: 600; }
+        
+        .ads-btn {
+            background: #4cd137; color: white; padding: 12px; border-radius: 10px;
+            text-decoration: none; font-weight: bold; display: flex; align-items: center;
+            justify-content: center; gap: 10px; margin-bottom: 25px; transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .ads-btn:hover { background: #44bd32; }
+        
+        .ads-fitur-list { list-style: none; }
+        .ads-fitur-list li { font-size: 0.9rem; color: #444; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+        .ads-fitur-list li i { color: #4cd137; font-size: 1.1rem; }
+
         @media (max-width: 768px) {
-            .free-features-section h2 { font-size: 2rem; }
-            .free-card { width: 100%; }
+            .ads-pricing-section h2 { font-size: 2rem; }
+            .ads-card { width: 100%; }
         }
     </style>
 </head>
@@ -474,7 +510,6 @@
         <h4>FITUR TAMBAHAN</h4>
         <h2>DAPATKAN FITUR FITUR GRATIS!!</h2>
         <p class="intro">Apa yang Akan Anda Dapatkan dari Jasa Pembuatan Website MAKAIRA?</p>
-
         <div class="free-container">
             <div class="free-card">
                 <div class="free-icon"><i class="fab fa-google"></i></div>
@@ -490,6 +525,94 @@
                 <div class="free-icon"><i class="fas fa-code"></i></div>
                 <h3>FREE MAINTENANCE</h3>
                 <p>Kami menjamin keamanan website tanpa malware & berjalan secara optimal setiap saat.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ads-pricing-section" id="ads">
+        <h4>LAYANAN LAIN MAKAIRA</h4>
+        <h2>Digital Marketing <span>(Google Ads & Meta Ads)</span></h2>
+        <p class="intro">MAKAIRA juga menyediakan berbagai solusi untuk meningkatkan kesadaran merek (brand awareness) dan interaksi pelanggan (customer engagement) secara tertarget.</p>
+
+        <div class="price-container">
+            <div class="ads-card">
+                <h3>TRIAL</h3>
+                <div class="ads-price-box">
+                    <span class="ads-price">Rp 655.000</span>
+                    <span class="ads-duration"><i class="fas fa-calendar-alt"></i> Iklan tayang 14 hari</span>
+                </div>
+                <a href="https://wa.me/628123456789" class="ads-btn">Order Sekarang</a>
+                <ul class="ads-fitur-list">
+                    <li><i class="fas fa-check-circle"></i> Saldo Iklan ± Rp 500.000</li>
+                    <li><i class="fas fa-check-circle"></i> Include PPN Google 11%</li>
+                    <li><i class="fas fa-check-circle"></i> Jasa Iklan 19%</li>
+                    <li><i class="fas fa-check-circle"></i> Gratis Riset Kata Kunci</li>
+                    <li><i class="fas fa-check-circle"></i> Include Setup Iklan</li>
+                </ul>
+            </div>
+
+            <div class="ads-card">
+                <h3>STARTER</h3>
+                <div class="ads-price-box">
+                    <span class="ads-price">Rp 1.500.000</span>
+                    <span class="ads-duration"><i class="fas fa-calendar-alt"></i> Iklan tayang 14 hari</span>
+                </div>
+                <a href="https://wa.me/628123456789" class="ads-btn">Order Sekarang</a>
+                <ul class="ads-fitur-list">
+                    <li><i class="fas fa-check-circle"></i> Saldo Iklan ± Rp 1.000.000</li>
+                    <li><i class="fas fa-check-circle"></i> Include PPN Google 11%</li>
+                    <li><i class="fas fa-check-circle"></i> Jasa Iklan 20%</li>
+                    <li><i class="fas fa-check-circle"></i> Gratis Riset Kata Kunci</li>
+                    <li><i class="fas fa-check-circle"></i> Include Setup Iklan</li>
+                </ul>
+            </div>
+
+            <div class="ads-card">
+                <h3>GROWTH</h3>
+                <div class="ads-price-box">
+                    <span class="ads-price">Rp 5.000.000</span>
+                    <span class="ads-duration"><i class="fas fa-calendar-alt"></i> Iklan tayang 30 hari</span>
+                </div>
+                <a href="https://wa.me/628123456789" class="ads-btn">Order Sekarang</a>
+                <ul class="ads-fitur-list">
+                    <li><i class="fas fa-check-circle"></i> Saldo Iklan ± Rp 4.000.000</li>
+                    <li><i class="fas fa-check-circle"></i> Include PPN Google 11%</li>
+                    <li><i class="fas fa-check-circle"></i> Jasa Iklan 13%</li>
+                    <li><i class="fas fa-check-circle"></i> Gratis Riset Kata Kunci</li>
+                    <li><i class="fas fa-check-circle"></i> Include Setup Iklan</li>
+                </ul>
+            </div>
+
+            <div class="ads-card">
+                <h3>OPTIMAL</h3>
+                <div class="ads-price-box">
+                    <span class="ads-price">Rp 7.500.000</span>
+                    <span class="ads-duration"><i class="fas fa-calendar-alt"></i> Iklan tayang 30 hari</span>
+                </div>
+                <a href="https://wa.me/628123456789" class="ads-btn">Order Sekarang</a>
+                <ul class="ads-fitur-list">
+                    <li><i class="fas fa-check-circle"></i> Saldo Iklan ± Rp 6.000.000</li>
+                    <li><i class="fas fa-check-circle"></i> Include PPN Google 11%</li>
+                    <li><i class="fas fa-check-circle"></i> Jasa Iklan 10%</li>
+                    <li><i class="fas fa-check-circle"></i> Gratis Riset Kata Kunci</li>
+                    <li><i class="fas fa-check-circle"></i> Include Setup Iklan</li>
+                </ul>
+            </div>
+
+            <div class="ads-card" style="border: 2px solid #4834d4; background: #f1f2f6;">
+                <h3>ENTERPRISE</h3>
+                <div class="ads-price-box">
+                    <span class="ads-price">Rp 15.000.000</span>
+                    <span class="ads-duration"><i class="fas fa-chalkboard-teacher"></i> Pelatihan Sampai Bisa</span>
+                </div>
+                <a href="https://wa.me/628123456789" class="ads-btn" style="background: #4834d4;">Daftar Sekarang</a>
+                <ul class="ads-fitur-list">
+                    <li><i class="fas fa-check-circle"></i> Privat Mentoring (Google & Meta Ads)</li>
+                    <li><i class="fas fa-check-circle"></i> Akses Seluruh Materi Strategi</li>
+                    <li><i class="fas fa-check-circle"></i> Konsultasi Langsung Hingga Mahir</li>
+                    <li><i class="fas fa-check-circle"></i> Pendampingan Setup Campaign Aktif</li>
+                    <li><i class="fas fa-check-circle"></i> Sertifikat Pelatihan MAKAIRA</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -516,6 +639,7 @@
             },
             "retina_detect": true
         });
+        function toggleFitur(h) { var c = h.nextElementSibling; c.style.display = c.style.display === "block" ? "none" : "block"; }
     </script>
 </body>
 </html>
